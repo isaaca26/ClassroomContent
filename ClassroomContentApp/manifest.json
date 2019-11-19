@@ -1,0 +1,26 @@
+{
+  "name": "Classroom Content",
+  "description": "Push Content to Students using Classroom Content",
+  "version": "0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": [
+        "background.js"
+      ]
+    }
+  },
+  "permissions": [
+    "webview",
+    "identity"
+  ],
+  "icons": {
+    "16": "calculator-16.png",
+    "128": "calculator-128.png"
+  },
+  "sockets": {
+    "tcp": {
+      "connect": "*"
+    }
+  }
+}
