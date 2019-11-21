@@ -11,8 +11,7 @@
     }
   },
   "permissions": [
-    "webview",
-    "identity"
+    "webview"
   ],
   "icons": {
     "16": "calculator-16.png",

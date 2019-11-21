@@ -2,7 +2,7 @@
   "name": "Classroom Content",
   "version": "0.0.1",
   "description": "Instantly send current tab to connected client",
-  "permissions": ["declarativeContent", "activeTab"],
+  "permissions": ["declarativeContent", "activeTab", "storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
