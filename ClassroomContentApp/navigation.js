@@ -11,3 +11,9 @@ forward.onclick = function() {
   webview.forward(function callback(success){
   });
 };
+
+let refresh = document.getElementById('refresh');
+refresh.onclick = function() {
+  const webview = document.querySelector("webview");
+  webview.reload();
+};
