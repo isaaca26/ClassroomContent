@@ -1,4 +1,7 @@
 window.mdc.autoInit();
+let el = document.querySelector(".chrome-tabs");
+let chromeTabs = new ChromeTabs();
+chromeTabs.init(el);
 
 document.getElementById("submit").onclick = function() {
   document.getElementById("screen1").style.display = "none";
@@ -13,6 +16,11 @@ document.getElementById("submit").onclick = function() {
 
       document.getElementById("screen2").style.display = "none";
       document.getElementById("screen3").style.display = "block";
+
+      chromeTabs.addTab({
+        title: "New Tab",
+        favicon: false
+      });
     };
   };
 };

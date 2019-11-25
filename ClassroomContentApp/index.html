@@ -2,11 +2,17 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="chrome-tabs.css">
+  <link rel="stylesheet" href="chrome-tabs-dark-theme.css">
   <link rel="stylesheet" href="material-components-web.min.css">
   <link rel="stylesheet" href="material-design-icons.css">
   <link rel="stylesheet" href="material-design-roboto.css">
-  <link rel="stylesheet" href="styles.css">
-  <script type="text/javascript" src="material-components-web.min.js"></script>
+  <!--<link rel="stylesheet" href="styles.css">-->
+  <script src="material-components-web.min.js"></script>
+  <!--<script src="draggabilly.pkgd.min.js"></script>
+  <script src="chrome-tabs.js"></script>
+  <script type="text/javascript" src="index.js"></script>-->
 </head>
 
 <body>
@@ -17,7 +23,7 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" style="text-align: center;">
           <div class="mdc-typography">
-            <h2 class="mdc-typography--headline2">Enter Teacher's Code to Connect</h1>
+            <h2 class="mdc-typography--headline2">Enter Teacher's Room to Connect</h1>
           </div>
         </div>
       </div>
@@ -30,7 +36,7 @@
               <div class="mdc-notched-outline">
                 <div class="mdc-notched-outline__leading"></div>
                 <div class="mdc-notched-outline__notch">
-                  <label for="tf-outlined" class="mdc-floating-label">Code</label>
+                  <label for="tf-outlined" class="mdc-floating-label">Room</label>
                 </div>
                 <div class="mdc-notched-outline__trailing"></div>
               </div>
@@ -41,7 +47,7 @@
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" style="text-align:center;">
-              <buttom class="mdc-button mdc-button--raised" href="loading.html" id="submit">
+              <buttom class="mdc-button mdc-button--raised" id="submit">
                 <div class="mdc-button__ripple"></div>
                 <span class="mdc-button__label">Submit</span>
                 </button>
@@ -66,7 +72,76 @@
   </div>
 
   <div id="screen3" style="display:none">
+
     <div style="display: grid; grid-template-rows: auto auto;">
+      <div class="chrome-tabs" style="--tab-content-margin: 9px">
+        <div class="chrome-tabs-content">
+          <!--<div class="chrome-tab">
+            <div class="chrome-tab-dividers"></div>
+            <div class="chrome-tab-background">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <symbol id="chrome-tab-geometry-left" viewBox="0 0 214 36">
+                    <path d="M17 0h197v36H0v-2c4.5 0 9-3.5 9-8V8c0-4.5 3.5-8 8-8z" />
+                  </symbol>
+                  <symbol id="chrome-tab-geometry-right" viewBox="0 0 214 36">
+                    <use xlink:href="#chrome-tab-geometry-left" />
+                  </symbol>
+                  <clipPath id="crop">
+                    <rect class="mask" width="100%" height="100%" x="0" />
+                  </clipPath>
+                </defs>
+                <svg width="52%" height="100%">
+                  <use xlink:href="#chrome-tab-geometry-left" width="214" height="36" class="chrome-tab-geometry" />
+                </svg>
+                <g transform="scale(-1, 1)">
+                  <svg width="52%" height="100%" x="-100%" y="0">
+                    <use xlink:href="#chrome-tab-geometry-right" width="214" height="36" class="chrome-tab-geometry" />
+                  </svg>
+                </g>
+              </svg>
+            </div>
+            <div class="chrome-tab-content">
+              <div class="chrome-tab-favicon" style="background-image: url('demo/images/google-favicon.ico')">
+              </div>
+              <div class="chrome-tab-title">Google</div>
+              <div class="chrome-tab-drag-handle"></div>
+              <div class="chrome-tab-close"></div>
+            </div>
+          </div>-->
+          <!--<div class="chrome-tab" active>
+            <div class="chrome-tab-dividers"></div>
+            <div class="chrome-tab-background">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <symbol id="chrome-tab-geometry-left" viewBox="0 0 214 36">
+                    <path d="M17 0h197v36H0v-2c4.5 0 9-3.5 9-8V8c0-4.5 3.5-8 8-8z" />
+                  </symbol>
+                  <symbol id="chrome-tab-geometry-right" viewBox="0 0 214 36">
+                    <use xlink:href="#chrome-tab-geometry-left" />
+                  </symbol>
+                  <clipPath id="crop">
+                    <rect class="mask" width="100%" height="100%" x="0" />
+                  </clipPath>
+                </defs><svg width="52%" height="100%">
+                  <use xlink:href="#chrome-tab-geometry-left" width="214" height="36" class="chrome-tab-geometry" />
+                  </svg>
+                <g transform="scale(-1, 1)"><svg width="52%" height="100%" x="-100%" y="0">
+                    <use xlink:href="#chrome-tab-geometry-right" width="214" height="36" class="chrome-tab-geometry" />
+                  </svg></g>
+              </svg>
+            </div>
+            <div class="chrome-tab-content">
+              <div class="chrome-tab-favicon" style="background-image: url('demo/images/facebook-favicon.ico')"></div>
+              <div class="chrome-tab-title">Facebook</div>
+              <div class="chrome-tab-drag-handle"></div>
+              <div class="chrome-tab-close"></div>
+            </div>
+          </div>-->
+        </div>
+        <div class="chrome-tabs-bottom-bar"></div>
+      </div>
+
       <div>
         <button id="back" class="mdc-icon-button material-icons"
           style="padding: 3px; width: 30px; height:30px">arrow_back</button>
@@ -74,12 +149,19 @@
           style="padding: 3px; width: 30px; height:30px">arrow_forward</button>
         <button id="refresh" class="mdc-icon-button material-icons"
           style="padding: 3px; width: 30px; height:30px">refresh</button>
+        <button id="home" class="mdc-icon-button material-icons"
+          style="padding: 3px; width: 30px; height:30px">home</button>
       </div>
-      <div>
-        <webview style="width: 100%; height: 100%; position: absolute; margin-left:0">
-        </webview>
-      </div>
+
+      <div class="chrome-tabs-optional-shadow-below-bottom-bar"></div>
+
+      <script src="draggabilly.pkgd.min.js"></script>
+      <script src="chrome-tabs.js"></script>
+      <!--<script src="test.js"></script>-->
+
     </div>
+
+    <webview style="width: 100%; height: 100%; position: absolute;" />
   </div>
 
   <script type="text/javascript" src="index.js"></script>
