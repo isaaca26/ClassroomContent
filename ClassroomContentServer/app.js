@@ -6,6 +6,8 @@ const expressWs = require("express-ws")(app);
 const wss = expressWs.getWss("/");
 const bodyParser = require("body-parser");
 
+let connections = [];
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
@@ -18,32 +20,28 @@ app.use(function(req, res, next) {
 });
 
 app.post("/", function(req, res) {
-  console.log(req.body);
-  wss.clients.forEach(function(client) {
-    client.send(req.body.url);
-  });
+  let connect;
+  for (connect of connections) {
+    if (connect.channel === req.body.channel) {
+      const client = connect.client;
+      client.send(req.body.url);
+    }
+  }
   res.end();
 });
 
-let connections = {};
-app.ws("/", function(ws, req) {
-  //console.log("user connected");
-  //console.log(req);
-  //console.log(ws);
-  //console.log(req);
-  /* ws.on('message', function(msg) {
-    console.log(msg);
-  }); */
-  ws.on("connection", req => {
-    req.id = uuid.v4();
-    connections[req.id] = req;
-    //console.log(connections);
-    //console.log(req);
-  });
+app.ws("/:channel", function(ws, req) {
+  let connect = {};
+  connect.client = ws;
+  connect.channel = req.params.channel;
+  connections.push(connect);
 
-  ws.on("close", function(req) {
-    //console.log(req);
-    //console.log("user disconnected");
+  ws.on("close", function() {
+    for (let i = 0; i < connections.length; i++) {
+      if (connections[i].client === ws) {
+        connections.splice(i, 1);
+      }
+    }
   });
 });
 
