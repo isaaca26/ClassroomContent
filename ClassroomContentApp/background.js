@@ -1,5 +1,5 @@
 chrome.app.runtime.onLaunched.addListener(function() {
-  chrome.app.window.create("window2.html", {
+  chrome.app.window.create("index.html", {
     id: "main",
     state: "maximized"
   });
